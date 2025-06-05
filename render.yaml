@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: euromillions-ia
+    env: python
+    buildCommand: ""
+    startCommand: "python app.py"
+    plan: free
+    envVars:
+      - key: RAPIDAPI_KEY
+        value: <votre_clé_API>
