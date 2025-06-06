@@ -3,4 +3,6 @@ requests
 matplotlib
 pandas
 scikit-learn
+python-dotenv
+
 
