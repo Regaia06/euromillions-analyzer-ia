@@ -1,2 +1,3 @@
-# euromillions-analyzer-ia
-Analyzer-statistic-resultat-prediction-ia
+# Euromillions Analyzer IA
+
+Prédiction statistique basée sur les tirages passés.

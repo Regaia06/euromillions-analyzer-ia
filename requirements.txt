@@ -1,8 +1,6 @@
 flask
-requests
-matplotlib
-pandas
-scikit-learn
 python-dotenv
-
-
+requests
+scikit-learn
+pandas
+gunicorn

@@ -1,31 +1,23 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, render_template, request, jsonify
 from api_client import get_tirages
-from model import analyser_tirages
+from utils import filtrer_tirages, analyser_tirages
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
 
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
-@app.route('/api/analyse', methods=['GET'])
+@app.route('/api/analyse', methods=['POST'])
 def analyse():
+    params = request.json
     try:
         tirages = get_tirages()
-        exclude_last_n = int(request.args.get("exclude_last", 0))
-        jour = request.args.get("jour")
-        start_date = request.args.get("start_date")
-        end_date = request.args.get("end_date")
-        resultat = analyser_tirages(
-            tirages,
-            exclude_last_n=exclude_last_n,
-            jour=jour,
-            start_date=start_date,
-            end_date=end_date
-        )
+        tirages_filtres = filtrer_tirages(tirages, params)
+        resultat = analyser_tirages(tirages_filtres)
         return jsonify(resultat)
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+        return jsonify({'error': str(e)}), 403

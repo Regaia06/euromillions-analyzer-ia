@@ -1,15 +1,10 @@
-import requests
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY")
+import requests
 
 def get_tirages():
     url = "https://euromillions.p.rapidapi.com/draws"
     headers = {
-        "X-RapidAPI-Key": RAPIDAPI_KEY,
+        "X-RapidAPI-Key": os.environ.get("RAPIDAPI_KEY"),
         "X-RapidAPI-Host": "euromillions.p.rapidapi.com"
     }
     response = requests.get(url, headers=headers)
