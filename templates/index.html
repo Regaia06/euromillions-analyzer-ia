@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Analyse Euromillions</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Analyse Prédictive Euromillions</h1>
+    <label>Exclure les derniers tirages : <input type="number" id="exclude_last" value="0" min="0"></label>
+    <label>Jour du tirage :
+      <select id="jour">
+        <option value="">Tous</option>
+        <option value="tuesday">Mardi</option>
+        <option value="friday">Vendredi</option>
+      </select>
+    </label>
+    <label>Date de début : <input type="date" id="start_date"></label>
+    <label>Date de fin : <input type="date" id="end_date"></label>
+    <button onclick="fetchAnalyse()">Obtenir les Prédictions</button>
+    <div id="resultat"></div>
+    <canvas id="graph" width="600" height="300"></canvas>
+    <canvas id="graph2" width="600" height="300"></canvas>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/static/script.js"></script>
+</body>
+</html>
