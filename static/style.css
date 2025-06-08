@@ -1,0 +1,9 @@
+body.light-mode {
+    background: #f0f0f0;
+    color: #000;
+}
+body.dark-mode {
+    background: #121212;
+    color: #eee;
+}
+button { margin-top: 1em; }
